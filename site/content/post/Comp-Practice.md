@@ -5,7 +5,7 @@ hasMath = false
 title = "Deliberate Practice in Competitive Programming"
 +++
 
-*Disclaimer, I'm not a legend at competitive programming, I'm blue on codeforces and I will participate on IOI, I believe though that I know enough about CP and teaching that I can make some contribution*
+*Disclaimer, I'm far from a legend at competitive programming, I'm blue on codeforces and I will participate on IOI, I believe though that I know enough about CP and teaching that I can make some contribution*
 
 When you ask on forums about becoming red in codeforces, topcoder or atcode or how to get a gold medal in IOI, most people just say things like "practice, practice, practice" or "solve as many problems as you can",  but while this is better than nothing, it's not the whole truth and is in fact a quite inefficient way to train. As many studies show, normal practice will show slow progress and sometimes your abilities will even deteriorate a little. What one needs in fact is "deliberate practice", a way to practice with focus and feedback, that was shown to be extremelly more efficient than normal practice methods.
 

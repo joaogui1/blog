@@ -1,7 +1,11 @@
-# My past 3 months of Research
++++
+author = "João G. M. Araújo"
+date = "2020-02-19"
+hasMath = false
+title = "Softbot Design with WANNS"
+subtitle = "My past 3 months doing research"
++++
 
-1. TOC
-{:toc}
 
 ## Introduction
 
