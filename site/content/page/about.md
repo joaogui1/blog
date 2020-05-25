@@ -3,6 +3,7 @@ math = false
 meta = false 
 toc = false 
 author = "João G. M. Araújo"
+title = "About Me"
 +++
 
 ### Who am I
