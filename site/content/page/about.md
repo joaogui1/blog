@@ -1,8 +1,9 @@
----
-layout: page
-title: About Me
-permalink: /about/
----
++++
+math = false 
+meta = false 
+toc = false 
+author = "João G. M. Araújo"
++++
 
 ### Who am I
 
