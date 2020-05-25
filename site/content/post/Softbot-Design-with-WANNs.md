@@ -4,7 +4,7 @@ date = "2020-02-19"
 hasMath = false
 title = "Softbot Design with WANNS"
 subtitle = "My past 3 months doing research"
-toc: true
+toc true
 +++
 
 
