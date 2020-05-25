@@ -1,6 +1,11 @@
++++
+author = "João G. M. Araújo"
+date = "2020-05-25"
+hasMath = false
+title = "Uma introduação a JAX"
++++
 # Uma introdução a JAX
-> Numpy + autograd + XLA
-- toc: true 
+> Numpy + autograd + XLA 
 
 JAX é uma nova biblioteca para Python da Google com foco em pesquisa de alta performance em Aprendizado de Máquina e seguindo o paradigma de programação funcional 
 Mais especificamente JAX nos dá acesso a uma API compatível com numpy e scipy e transformações de função, as principais sendo grad, jit, vmap e pmap.
