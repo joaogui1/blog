@@ -28,70 +28,70 @@ title = "30 days of Javascript challenge"
 ### [Day 7: Array Cardio 2](array_cardio2)
 
 
-### [Day 8: Fun with HTML5 Canvas](/js30/drawing)
+### [Day 8: Fun with HTML5 Canvas](drawing)
 
 
-### [Day 9: 14 Must Know Dev Tools Tricks](/js30/dev_tools_tricks)
+### [Day 9: 14 Must Know Dev Tools Tricks](dev_tools_tricks)
 
 
-### [Day 10: Hold Shift to Check Multiple Checkboxes](/js30/checkboxes)
+### [Day 10: Hold Shift to Check Multiple Checkboxes](checkboxes)
 
 
-### [Day 11: Custom HTML5 Video Player](/js30/video_player)
+### [Day 11: Custom HTML5 Video Player](video_player)
 
 
-### [Day 12: Key Sequence Detection (KONAMI CODE)](/js30/code)
+### [Day 12: Key Sequence Detection (KONAMI CODE)](code)
 
 
-### [Day 13: Slide in on Scroll](/js30/video_player)
+### [Day 13: Slide in on Scroll](video_player)
 
 
-### [Day 14: Object and Arrays - Reference VS Copy](/js30/copying)
+### [Day 14: Object and Arrays - Reference VS Copy](copying)
 
 
-### [Day 15: Local Storage and Event Delegation](/js30/tapas)
+### [Day 15: Local Storage and Event Delegation](tapas)
 
 
-### [Day 16: CSS Text Shadow and Mouse Move Effect](/js30/shadow)
+### [Day 16: CSS Text Shadow and Mouse Move Effect](shadow)
 
 
-### [Day 17: Sorting Band Names without articles](/js30/bands)
+### [Day 17: Sorting Band Names without articles](bands)
 
 
-### [Day 18: Tally String Times with Reduce](/js30/time_reduce)
+### [Day 18: Tally String Times with Reduce](time_reduce)
 
 
-### [Day 19: Unreal Webcam Fun](/js30/video_recorder)
+### [Day 19: Unreal Webcam Fun](video_recorder)
 
 
-### [Day 20: Native Speech Recognition](/js30/speech_recogntion)
+### [Day 20: Native Speech Recognition](speech_recogntion)
 
 
-### [Day 21: Geolocation based Speedometer and Compass](/js30/geolocation)
+### [Day 21: Geolocation based Speedometer and Compass](geolocation)
 
 
-### [Day 22: Follow Along Links](/js30/follow_along)
+### [Day 22: Follow Along Links](follow_along)
 
 
-### [Day 23: Speech Synthesis](/js30/voice_synth)
+### [Day 23: Speech Synthesis](voice_synth)
 
 
-### [Day 24: Sticky Nav](/js30/lost)
+### [Day 24: Sticky Nav](lost)
 
 
-### [Day 25: Event Capture, Propagation, Bubbling and Once](/js30/events)
+### [Day 25: Event Capture, Propagation, Bubbling and Once](events)
 
 
-### [Day 26: Stripe Follow Along Dropdown](/js30/stripe_follow)
+### [Day 26: Stripe Follow Along Dropdown](stripe_follow)
 
 
-### [Day 27: Click and Drag to Scroll](/js30/drag_scroll)
+### [Day 27: Click and Drag to Scroll](drag_scroll)
 
 
-### [Day 28: Video Speed and Controller UI](/js30/video_speed)
+### [Day 28: Video Speed and Controller UI](video_speed)
 
 
-### [Day 29: Countdown Clock](/js30/timer)
+### [Day 29: Countdown Clock](timer)
 
 
-### [Day 30: Whack A Mole Game](/js30/whack_a_mole)
+### [Day 30: Whack A Mole Game](whack_a_mole)
