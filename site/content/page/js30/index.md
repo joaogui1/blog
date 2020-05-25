@@ -1,30 +1,31 @@
----
-title: |
-layout: page
-feature_image: "https://picsum.photos/1300/400?image=989"
-feature_text: |
-  # Javascript30 Challenge
----
-
-### [Day 1: Drum Kit](/drum_kit/)
++++
+math = false 
+meta = false 
+toc = false 
+author = "João G. M. Araújo"
+title = "30 days of Javascript challenge"
++++
 
 
-### [Day 2: Clock](/clock/)
+### [Day 1: Drum Kit](drum_kit/)
 
 
-### [Day 3: Playing with CSS](/play_with_css/)
+### [Day 2: Clock](clock/)
 
 
-### [Day 4: Array Cardio 1](/js30/array_cardio1)
+### [Day 3: Playing with CSS](play_with_css/)
 
 
-### [Day 5: Flex Panels Image Gallery](/js30/flex_panel)
+### [Day 4: Array Cardio 1](array_cardio1)
 
 
-### [Day 6: Ajax Type Ahead](/js30/cities)
+### [Day 5: Flex Panels Image Gallery](flex_panel)
 
 
-### [Day 7: Array Cardio 2](/js30/array_cardio2)
+### [Day 6: Ajax Type Ahead](cities)
+
+
+### [Day 7: Array Cardio 2](array_cardio2)
 
 
 ### [Day 8: Fun with HTML5 Canvas](/js30/drawing)
