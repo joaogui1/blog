@@ -6,13 +6,13 @@ author = "João G. M. Araújo"
 title = "Resources"
 +++
 
-## Math Resources
+# Math Resources
 
-### Great Math Overflow and Stack Exchange Questions
+## Great Math Overflow and Stack Exchange Questions
 
 [What specific algebraic properties are broken at each Cayley-Dickson stage beyond octonions?](https://math.stackexchange.com/questions/641809/what-specific-algebraic-properties-are-broken-at-each-cayley-dickson-stage-beyon)
 
-### Awesome Quora Answers
+## Awesome Quora Answers
 
 [A nice introduction to p-adics and their uses](http://qr.ae/TUIemT)
 
@@ -86,7 +86,7 @@ title = "Resources"
 
 [Derivative with respect to the order of derivative](http://qr.ae/TUIzdW)
 
-### Reddit Gems
+## Reddit Gems
 
 [How to become well versed in elementary results](https://www.reddit.com/r/math/comments/61dk4n/how_do_i_become_well_versed_in_the_elementary/dfdsegx)
 
@@ -100,25 +100,25 @@ title = "Resources"
 
 [Good post about the Schanuel's Conjecture](https://www.reddit.com/r/math/comments/95ypna/effortpost_schanuels_conjecture/)
 
+# Machine Learning Resources
 
-### Overviews
-#### [Elements of AI course](https://www.elementsofai.com/)
+## Overviews
+[Elements of AI course](https://www.elementsofai.com/)
 
-#### [Karpathy's "Hacker's guide to Neural Networks"](https://karpathy.github.io/neuralnets/)
+[Karpathy's "Hacker's guide to Neural Networks"](https://karpathy.github.io/neuralnets/)
 
-#### [Machine Learning For Everyone](https://vas3k.com/blog/machine_learning/)
+[Machine Learning For Everyone](https://vas3k.com/blog/machine_learning/)
 
-#### [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/)
-
-
-### Deep Learning Books
-#### [Michel Nielsen's Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
-
-#### [The Deep Learning Book](http://www.deeplearningbook.org/)
+[Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/)
 
 
-### Deep Learning Courses
-#### [Stanford's Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)
+## Deep Learning Books
+[Michel Nielsen's Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+[The Deep Learning Book](http://www.deeplearningbook.org/)
+
+
+## Deep Learning Courses
+[Stanford's Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)
 
 
 #### [Fast.ai](https://course.fast.ai/)
