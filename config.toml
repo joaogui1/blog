@@ -1,3 +1,4 @@
+theme = "hyde"
 baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
