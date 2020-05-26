@@ -1,8 +1,10 @@
----
-layout: page
-title: About Me
-permalink: /about/
----
++++
+math = false 
+meta = false 
+toc = false 
+author = "João G. M. Araújo"
+title = "About Me"
++++
 
 ### Who am I
 
@@ -46,6 +48,3 @@ It's my personal website where I will blog about programming, host any web relat
 * Jungian psychology
 
 * Religions and mythologies
-
-#### Wishlist
-Here's my [wishlist](https://www.giftster.com/gift/jXqNb/)

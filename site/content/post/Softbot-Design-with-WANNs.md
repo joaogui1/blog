@@ -75,7 +75,7 @@ After looking at the specific output of my networks I found a bug I had introduc
 ## Comparing WANNs and NEAT
 
 To that end I compared NEAT and WANN with the same hyperparameters in the cartpole swing up task. The main takeaways were that NEAT trained faster, requiring considerably less compute to reach good performance, but while WANN's connection could be trained to reach 3x the networks initial performance, NEAT would only gain around 10% extra performance. That wasn't particularly surprising, as NEAT is optimizing the weights during evolution, while WANNs are using a fixed shared weight.
-![WANN vs NEAT]({{ site.baseurl }}/images/wann_vs_neat.png "WANN vs NEAT")
+![WANN vs NEAT](https://joaogui1.netlify.app/images/wann_vs_neat.png "WANN vs NEAT")
 
 ## Bug found!
 
@@ -86,17 +86,17 @@ That was counter intuitive, I took a look at the code and didn't seem to find an
 
 
 After fixing the bug the performance improved again and now it was finally possible to generate Neural Networks with many different kinds of activation functions. Here's an example of a net before the bug:
-  ![Bug net]({{ site.baseurl }}/images/BEPE_prebug_net.png "Buggy net")
+  ![Bug net](https://joaogui1.netlify.app/images/BEPE_prebug_net.png "Buggy net")
   
   And one after:
-  ![Debug net]({{ site.baseurl }}/images/BEPE_postbug_net.png "Debugged net")
+  ![Debug net](https://joaogui1.netlify.app/images/BEPE_postbug_net.png "Debugged net")
 
 ## Different inputs and results
 
 
 Finally I am now studying the use of different inputs to my CPPN, besides the x, y and z coordinates and distance from center. As of now I have tested not passing the center and also tested passing the material that was used in the voxels neighbors. Here are some preliminary results, both using 30 generations with a population of 60 individuals and the WANNs being untrained, just evolved:
 
-![Softbots comparison]({{ site.baseurl }}/images/Neat_and_WANN_CPPN.png "Softbots comparison")
+![Softbots comparison](https://joaogui1.netlify.app/images/Neat_and_WANN_CPPN.png "Softbots comparison")
 
 |-| No Center | Center | Neighbors|
 | NEAT-CPPN | 15.94 | 20.17 | 21.31 |
