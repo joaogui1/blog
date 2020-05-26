@@ -75,7 +75,7 @@ After looking at the specific output of my networks I found a bug I had introduc
 ## Comparing WANNs and NEAT
 
 To that end I compared NEAT and WANN with the same hyperparameters in the cartpole swing up task. The main takeaways were that NEAT trained faster, requiring considerably less compute to reach good performance, but while WANN's connection could be trained to reach 3x the networks initial performance, NEAT would only gain around 10% extra performance. That wasn't particularly surprising, as NEAT is optimizing the weights during evolution, while WANNs are using a fixed shared weight.
-![WANN vs NEAT]({{ site.baseurl }}/images/wann_vs_neat.png "WANN vs NEAT")
+![WANN vs NEAT](https://joaogui1.netlify.app/images/wann_vs_neat.png "WANN vs NEAT")
 
 ## Bug found!
 
