@@ -1,6 +1,6 @@
 baseurl = "/"
 title = "Programmer in Progress"
-theme = "hyde"
+theme = "hyde-custom"
 
 [Params]
     mainSections = ["post"]
