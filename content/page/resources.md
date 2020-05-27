@@ -1,7 +1,8 @@
 +++
 math = false 
 meta = false 
-toc = false 
+toc = false
+date = "2018-08-25"
 author = "João G. M. Araújo"
 title = "Resources"
 +++
