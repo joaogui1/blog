@@ -1,36 +1,16 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
-<body>
-<div id="layout" class="pure-g">
-<article class="pure-u-1">
-{{ partial "brand.html" . }}
-  {{ partial "content.header.html" . }}
-  <section class="list-page">
-  {{ range .Data.Pages.GroupByDate "2006" }}
-    <details open>
-      <summary class="year">{{ .Key }} ({{ len .Pages }})</summary>
-      {{ range .Pages.GroupByDate "January" }}
-        <ul>
-          <li>
-            <details open>
-              <summary>{{ .Key }} ({{ len .Pages }})</summary>
-                {{ range .Pages }}
-                  <ul>
-                    <li>
-                      <span class="list-date">{{ .Date.Format "Jan 2" }} &middot;</span>
-                      <a href="{{ .RelPermalink }}">{{.Title}}</a>
-                    </li>
-                  </ul>
-                {{ end }}
-            </details>
-          </li>
-        </ul>
+{{ partial "jumbotron" (dict "imageUrl" "/img/blog-index.jpg" "title" "Latest stories") }}
+
+<div class="mw7 center">
+  <ul class="flex-ns flex-wrap mhn1-ns pa3">
+      {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
+          <div class="w-50-ns ph1-ns flex">
+            {{ .Render "li"}}
+          </div>
       {{ end }}
-    </details>
-    {{ end }}
-  </section>
-{{ partial "footer.html" . }}
-</article>
+  </ul>
+  {{ partial "pagination" . }}
 </div>
-</body>
-</html>
+
+{{end}}

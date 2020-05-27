@@ -1,22 +1,13 @@
-{{ partial "header.html" . }}
-<body>
-<div id="layout" class="pure-g">
-<article class="pure-u-1">
-{{ partial "brand.html" . }}
+{{ define "main" }}
 
-<h2><a href="page/about">About Me</a></h2>
-<h2><a href="post">Blog</a></h2>
-<h2><a href="page/resources">Resources</a></h2>
-<h2><a href="page/js30/">JS30 Challenge</a></h2>
-<!-- {{ range last 5 .Site.Pages }}
-  {{ partial "content.header.html" . }}
-  <p>{{ .Summary }}</p>
-  {{ if .Truncated }}
-  <p><a href="{{ .RelPermalink  }}">Read On &rarr;</a></p>
-  {{ end  }}
-{{ end  }} -->
-{{ partial "footer.html" . }}
-</article>
-</div>
-</body>
-</html>
+{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+
+{{ partial "short-text" .Params.blurb}}
+
+{{ partial "2-up" .Params }}
+
+{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
+
+{{ partial "blog" . }}
+
+{{ end }}
