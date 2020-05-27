@@ -2,15 +2,15 @@
 author = "João G. M. Araújo"
 date = "2020-05-25"
 hasMath = false
-title = "Uma introduação a JAX"
+title = "Uma introdução a JAX"
 subtitle = "Numpy + autograd + XLA"
 +++ 
 
-[JAX](https://github.com/google/jax) é uma nova biblioteca para Python da Google com foco em pesquisa de alta performance em Aprendizado de Máquina e seguindo o paradigma de programação funcional 
+[JAX](https://github.com/google/jax) é uma nova biblioteca para Python da Google com foco em pesquisa de alta performance em Aprendizado de Máquina e seguindo o paradigma de programação funcional. 
 Mais especificamente JAX nos dá acesso a uma API compatível com numpy e scipy e transformações de função, as principais sendo grad, jit, vmap e pmap(que vai ter seu próprio post no futuro).
 
 ## O Wrapper de Numpy: jax.numpy
-JAX nos dá acesso ao jax.numpy, uma reinplementação das funções do Numpy que são transformáveis pelas pelas trasformações de função do JAX.
+JAX nos dá acesso ao jax.numpy, uma reimplementação das funções do Numpy.
 
 
 ```python
@@ -38,7 +38,7 @@ print(np.dot(a, b), jnp.dot(a, b))
 
 
 Note que JAX tem seu próprio tipo de array, o DeviceArray, em geral as funções vão castar arrays de numpy para DeviceArrays, então se você quiser boa performance é melhor fazer esse casting manualmente antes de passar os dados para várias funções.
-Uma outra diferença é números aleatórios funcionam. JAX nãp tem a jax.numpy.random, em vez disso ele tem a sua própria sub-biblioteca jax.random
+Uma outra diferença é como números aleatórios funcionam. JAX não tem a jax.numpy.random, em vez disso ele tem a sua própria sub-biblioteca jax.random
 
 ## Números aleatórios jax.random
 
@@ -65,11 +65,12 @@ print(a, b) #Agora são diferentes
 
 ## Transformações
 
-O principal diferencial de JAX são suas tranformações de funções, que nos permitem permitem modificar de maneiras bem úteis funções definidas a partir de outras funções do JAX e algumas primitivas de Python. Algo muito útil e legal delas é que elas podem ser utilizadas em conjunto, nos permitindo por exemplo compilar a derivada de uma função vetorizada apenas aplicando 3 transformações uma seguida da outra. Porém existem alguns cuidados que dever ser tomados ao se usar esses transformações, para entender esse cuidados melhores cheque esse [link](https://github.com/google/jax#current-gotchas) e abra o notebook
+O principal diferencial de JAX são suas tranformações de funções, que nos permitem modificar facilmente funções definidas a partir de outras funções do JAX e algumas primitivas de Python. Algo muito útil e legal delas é que elas podem ser utilizadas em conjunto, nos permitindo por exemplo compilar a derivada de uma função vetorizada apenas aplicando 3 transformações uma seguida da outra a função original. 
+Porém existem alguns cuidados que dever ser tomados ao se usar esses transformações, para entender esse cuidados melhor cheque esse [link](https://github.com/google/jax#current-gotchas) e abra o notebook
 
 ### Diferenciação Automática: jax.grad
 
-Em aprendizado de máquina, principalmente quando estamos tratando de redes neurais, lidamos com muitas derivas, gradientes e afins: Para treinar uma regressão linear ou logística, precisamos computar um hessiano, para treinar uma rede neural usamos descida de gradiente, que requer o cálculo de um gradiente, dentre outros exemplos. 
+Em aprendizado de máquina, principalmente quando estamos tratando de redes neurais, lidamos com muitas derivadas, gradientes e afins: Para treinar uma regressão linear ou logística, precisamos computar um hessiano, para treinar uma rede neural usamos descida de gradiente, que requer o cálculo de um gradiente, dentre outros exemplos. 
 Computar essas derivadas na mão é muitas vezes impossível (por questão de tempo), assim temos algoritmos como o backpropagation para redes neurais, porém se sempre tivessemos que implementar nós mesmos esse algoritmo, e implementar a derivada de cada uma das funções que vamos usar, terminaríamos com uma quatidade imensa de código duplicado, além duma imensa chance de errarmos algo na implementação e terminarmos sem conseguir bons resultados ou com resultados que não correspodem a realidade. 
 Para lidar com isso temos diferenciação automática, simplesmente ter diferenciação automática para as funções de Numpy já é o bastante para uma biblioteca mostrar seu valor, e no caso existe uma biblioteca que é exatamente isso, chamada de Autograd, em muitos sentidos JAX é um sucessor dessa biblioteca, inclusive ambas têm muitos desenvolvedores em comum.
 
