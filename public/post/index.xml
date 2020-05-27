@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Programmer in Progress</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Programmer in Progress</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Uma introduação a JAX</title>
+      <link>/post/intro_jax_pt1/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/intro_jax_pt1/</guid>
+      <description>JAX é uma nova biblioteca para Python da Google com foco em pesquisa de alta performance em Aprendizado de Máquina e seguindo o paradigma de programação funcional Mais especificamente JAX nos dá acesso a uma API compatível com numpy e scipy e transformações de função, as principais sendo grad, jit, vmap e pmap(que vai ter seu próprio post no futuro).
+O Wrapper de Numpy: jax.numpy JAX nos dá acesso ao jax.</description>
+    </item>
+    
+    <item>
+      <title>Softbot Design with WANNS</title>
+      <link>/post/softbot-design-with-wanns/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/softbot-design-with-wanns/</guid>
+      <description>Introduction I&amp;rsquo;m a Brazilian undergraduate student in Computer Science and I spent the past 3 months in the University of Tsukuba doing a research internship under Professor Claus Aranha. Here I will talk about my project during these past months to the best of my memory and in the end write down some lessons learned.
+The research idea Softbot Design Soft robots (softbots) are robots built from highly compliant materials, similar to those found in living organisms1.</description>
+    </item>
+    
+    <item>
+      <title>Deliberate Practice in Competitive Programming</title>
+      <link>/post/comp-practice/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comp-practice/</guid>
+      <description>Disclaimer, I&amp;rsquo;m far from a legend at competitive programming, I&amp;rsquo;m blue on codeforces and I will participate on IOI, I believe though that I know enough about CP and teaching that I can make some contribution
+When you ask on forums about becoming red in codeforces, topcoder or atcode or how to get a gold medal in IOI, most people just say things like &amp;ldquo;practice, practice, practice&amp;rdquo; or &amp;ldquo;solve as many problems as you can&amp;rdquo;, but while this is better than nothing, it&amp;rsquo;s not the whole truth and is in fact a quite inefficient way to train.</description>
+    </item>
+    
+  </channel>
+</rss>

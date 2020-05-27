@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Softbot Design with WANNS &middot; Programmer in Progress</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>Programmer in Progress</h1></a>
+      <p class="lead">
+       My description 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/page/about"> About </a></li><li><a href="/post/"> Blog </a></li><li><a href="https://github.com/joaogui1"> Github </a></li><li><a href="/page/resources"> Resources </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Softbot Design with WANNS</h1>
+  <time datetime=2020-02-19T00:00:00Z class="post-date">Wed, Feb 19, 2020</time>
+  <h2 id="introduction">Introduction</h2>
+<p>I&rsquo;m a Brazilian undergraduate student in Computer Science and I spent the past 3 months in the University of Tsukuba doing a research internship under Professor Claus Aranha. Here I will talk about my project during these past months to the best of my memory and in the end write down some lessons learned.</p>
+<h2 id="the-research-idea">The research idea</h2>
+<h3 id="softbot-design">Softbot Design</h3>
+<p>Soft robots (softbots) are robots built from highly compliant materials, similar to those found in living organisms<a href="https://en.wikipedia.org/wiki/Soft_robotics#cite_note-softroboticreview-1">1</a>. There are many interesting applications for robots made from biological materials, like delivering drugs to specific parts of the human body and general interaction with the insides of a human.</p>
+<p>The paper Unshackling Evolution models the design of softbots as filling a cube with voxels in 3d, each voxel being of 4 possible types:</p>
+<ul>
+<li>Muscle 1, an active and soft material that actuates periodically, represented by green voxels</li>
+<li>Muscle 2, same as muscle 1, but when muscle 1 expands muscle 2 contracts and vice versa, represented by red voxels</li>
+<li>Bone, a passive and rigid material, represented by dark blue voxels</li>
+<li>Skin or flesh, a passive and soft material, represented by light blue voxels</li>
+</ul>
+<p>And then simulating the resulting robot using a physics simulation library called voxelyze. The aim of the task is generating softbots that walk the farthest in a given timescale and the paper compares the design of the softbots using direct encoding versus generative encoding (CPPNs)</p>
+<h3 id="cppnshttpseplexcsucfedupapersstanley_gpem07pdf"><a href="https://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf">CPPNs</a></h3>
+<p>Compositional Pattern Producing Networks are one of the coolest ideas I&rsquo;ve seen in Machine Learning, combining the flexibility of Neural Networks and the ability of Genetic Algorithms to optimize functions with hostile optimization landscapes to generate pretty much anything.</p>
+<p>Now for the more technical details, CPPNs are used to generate patterns in a manner similar to a printer head, where they walk through each point in space and associate an output to it. To exemplify that, if we want to generate an image a CPPN will receive the x and y coordinates of each pixel and as output generate the color of that specific pixel. You can also pass some additional information in the input, for example distance from the origin or from the center, or if you&rsquo;re building 3D structures you could pass distance from the axes.</p>
+<p>But how do we model the function associating points in space to colors? That&rsquo;s where the Neural Network comes in, as NNs are universal function approximators and so we could in theory capture any pattern we want, given a sufficiently big net.</p>
+<p>Finally we have that CPPNs tend to not have a fixed architecture and use many different activation functions in each of its neurons, so we use a neuroevolution algorithm, like NEAT to evolve a neural network that produces the pattern that we want.</p>
+<h3 id="weight-agnostic-neural-networkshttpsweightagnosticgithubio"><a href="https://weightagnostic.github.io/">Weight Agnostic Neural Networks</a></h3>
+<p>While classically CPPNs are evolved by using NEAT my research was initially concerned with what kind of CPPNs would be evolved by using David Ha&rsquo;s weight agnostic neural networks.</p>
+<p>The aim of WANNs is evolving a neural network architecture that encodes the solution to the problem, de-emphasizing the weights of the connection between neurons. To that end we generate a population of randomly wired nets and evolve them by randomly adding new nodes, new connections between nodes and changing a node activation function, and testing the network with a few (generally 6) random shared weights, and setting the fitness of the individual as the average fitness from the net using the random weights.</p>
+<p>WANNs show surprisingly good performance while using a single shared weight across all solutions compared to a normal fixed architecture with the same constraint of using a single weight, but they only achieve performance comparable to state of the art by training the weights of the final architecture, as you would with a normal NN.</p>
+<h2 id="reading-the-codes-and-creating-the-environment">Reading the codes and creating the environment</h2>
+<h3 id="getting-the-codebases-and-translating-to-modern-python">Getting the codebases and translating to modern python</h3>
+<p>My first challenge with this research was setting up my environment, as I had to initially combine Davd Ha&rsquo;s Weight Agnostic Neural Networks code with the Unshackling evolution challenge. Thankfully I found Kriegman&rsquo;s github, where he implemented Unshackling Evolution in python, calling it <a href="https://github.com/skriegman/evosoro/tree/master/evosoro">evosoro</a> (for <strong>evo</strong>lution of <strong>so</strong>ft <strong>ro</strong>bots), though it was still in python 2.7 and so I would need to do some translating to python 3 before merging the codebases.</p>
+<p>A few dozens of unicode errors later and evosoro was up and running in python 3.6 and so I could start thinking about merging the codebases.</p>
+<h3 id="merging-the-codebases">Merging the codebases</h3>
+<p>Both projects were somewhat extensive, evosoro specially as it was written in a very general way as to make it easier to implement other papers beyond Unshackling Evolution. After a good deal of time reading through the code I decided to use David Ha&rsquo;s code for optimization and create a Gym Task based on Voxelyze.</p>
+<h2 id="initial-experiments">Initial experiments</h2>
+<p>Initially the experiments showed little progress, with the softbots generated after 100s generations being barely capable of moving at all, and being extremely below the expected fitness, which was quite worrisome.</p>
+<p>I spoke to Claus and he advised me to check the output of my models instead of just looking at the metrics as that would help me better understand what my model was learning and what exactly was the bug.</p>
+<h2 id="quality-diversity-detour">Quality Diversity Detour</h2>
+<p>Since I believed I &ldquo;just&rdquo; needed to fix a few bugs I decided I could already study some techniques to explore the design of softbots, so Claus suggested I studied Quality Diversity algorithms and try to implement them on the project. I read <a href="https://arxiv.org/abs/1708.09251">Quality and Diversity Optimization: A Unifying Modular Framework</a> and <a href="https://arxiv.org/abs/1807.02397">Quality Diversity Through Surprise</a>, learning about extremely interesting techniques, like MAP-Elites and Novelty Search with Local Competition, that aim to increase the diversity of solutions found by evolutionary algorithms, while still maintaining high fitness, in fact getting higher fitness than algorithms focused on quality alone.</p>
+<p>After around one week of studying I presented what I learned to the procedural generation group and went back to focusing on debugging the code, instead of adding functionality to a buggy codebase.</p>
+<h2 id="lack-of-results-and-some-despair">Lack of results and some despair</h2>
+<p>After looking at the specific output of my networks I found a bug I had introduced when creating the evosoro environment that caused my algorithm to never generate one of the materials and to consider &ldquo;empty&rdquo; as a possible material even after the first check, that helped the program generate less sparse softbots and increased the performance, but it was still quite low. Besides that voxelyze took quite a while to run and since each WANN needs to be tested 6 times that meant that experiments would take an entire day running only for me to be met with low performance, since I had to generate some kind of report to my funding agency in the end of the program I stopped working on the softbot design for a while and simply do something that wasn&rsquo;t done in the original WANN paper despite being relevant, comparing WANN Search with its parent method, NEAT.</p>
+<h2 id="comparing-wanns-and-neat">Comparing WANNs and NEAT</h2>
+<p>To that end I compared NEAT and WANN with the same hyperparameters in the cartpole swing up task. The main takeaways were that NEAT trained faster, requiring considerably less compute to reach good performance, but while WANN&rsquo;s connection could be trained to reach 3x the networks initial performance, NEAT would only gain around 10% extra performance. That wasn&rsquo;t particularly surprising, as NEAT is optimizing the weights during evolution, while WANNs are using a fixed shared weight.
+<img src="https://joaogui1.netlify.app/images/wann_vs_neat.png" alt="WANN vs NEAT" title="WANN vs NEAT"></p>
+<h2 id="bug-found">Bug found!</h2>
+<p>I thought about Claus advice of visualizing the output of my algorithm again, and realized that the output wasn&rsquo;t just the softbots, but also the CPPNs architectures, so I worked on visualizing the networks generated. There was a directory called vis on the WANNs repo on github, so I used it, at first there were a few incompatibilities that I had to fix, but soon enough a very weird error was being reported: the activation functions of many nodes were not in the correct range (from 1 to 10).
+That was counter intuitive, I took a look at the code and didn&rsquo;t seem to find any specific mistake on it, so I added a quick debug print that would tell me should any activation outside the correct range be generated. After a few extra experiments I realized there was a bug on Google&rsquo;s code! Specifically they have a function that used the + operator as a way to merge lists, but when the function was called one argument was a list, while the other was a numpy array, and so the behavior of the + operator was rather different, summing the content of the lists instead of concatenating them. I fixed the bug and sent a Pull Request to their github repo, that Adam Gaier accepted.</p>
+<h2 id="evolving-neural-nets-post-bug">Evolving Neural Nets post bug</h2>
+<p>After fixing the bug the performance improved again and now it was finally possible to generate Neural Networks with many different kinds of activation functions. Here&rsquo;s an example of a net before the bug:
+<img src="https://joaogui1.netlify.app/images/BEPE_prebug_net.png" alt="Bug net" title="Buggy net"></p>
+<p>And one after:
+<img src="https://joaogui1.netlify.app/images/BEPE_postbug_net.png" alt="Debug net" title="Debugged net"></p>
+<h2 id="different-inputs-and-results">Different inputs and results</h2>
+<p>Finally I am now studying the use of different inputs to my CPPN, besides the x, y and z coordinates and distance from center. As of now I have tested not passing the center and also tested passing the material that was used in the voxels neighbors. Here are some preliminary results, both using 30 generations with a population of 60 individuals and the WANNs being untrained, just evolved:</p>
+<p><img src="https://joaogui1.netlify.app/images/Neat_and_WANN_CPPN.png" alt="Softbots comparison" title="Softbots comparison"></p>
+<p>|-| No Center | Center | Neighbors|
+| NEAT-CPPN | 15.94 | 20.17 | 21.31 |
+| WANN-CPPN | 18.66 | 19.22 | 13.83 |</p>
+<p>I still need to run these experiments for more generations as that will probably allow for a bigger performance difference to arise, and run them a few more times to get averages to account for bad and good random seeds affecting the results.</p>
+<p>There were some extra challenges related to dealing with weights optimization using CMA-ES and using PEPG, but this post is quite too long as it is, so maybe I will talk about that in the future.</p>
+<h2 id="tldr-lessons-learned">TL;DR: Lessons Learned</h2>
+<ul>
+<li>Always check your model&rsquo;s outputs, metrics are a good way to diagnose simple problems, but looking at the output can give you qualitatively better understanding of any problem you come across</li>
+<li>Don&rsquo;t assume anyone&rsquo;s code is bug free, specially your own</li>
+<li>Iterate fast, specially in the beginning as that will help you fix any initial bugs and start doing real experiments sooner. This can mean using a small subset of your data, use smaller or simpler models that still represent your idea or using smaller populations and less generations in a genetic algorithm</li>
+<li>There is a sweet spot between pivoting too much and spending too much time in a doomed project, everyone is in some point in that spectrum, try to discover if you abandon things too quickly for newer shinier ideas or if you stay too long with an idea that won&rsquo;t ever work</li>
+<li>Talk to your adviser. Just do it. If you have a progress to show, great! If you&rsquo;re somehow stuck explain why to them and they will probably manage to help.</li>
+<li>If your adviser is not helping you it may be a good moment to try to find another one or have a serious conversation with them</li>
+<li>Write from the beginning, I didn&rsquo;t write what I was doing before and recollecting everything took about an entire day. If you keep a log of your experiments, results and ideas it&rsquo;s easier to spot faulty assumptions, brain farts and similar mistakes, besides helping you remember all the experiments you wanted to run</li>
+<li>Write a makefile, in the beginning it may only have a run and a git update recipe, but as you go along and start using doing different kinds of experiments makefiles will help you not make a typo when writing what command you want to run</li>
+<li>Have fun and don&rsquo;t be too hard on yourself</li>
+</ul>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
