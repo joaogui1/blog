@@ -1,2 +1,23 @@
-languageCode = "en-us"
-title = "My New Netlify Victor Hugo Site"
+baseurl = "/"
+title = "Programmer in Progress"
+theme = "hyde"
+
+[Params]
+    mainSections = ["post"]
+    intro = true
+    headline = "My headline"
+    description = "My description"
+    github = "https://github.com/joaogui1"
+    twitter = "https://twitter.com/XXX"
+    email = "joaoguilhermearujo@gmail.com"
+    opengraph = true
+    shareTwitter = true
+    dateFormat = "2 Jan, 2006"
+
+[Menus]
+  main = [
+      {Name = "About", URL = "/page/about"},
+      {Name = "Resources", URL = "/page/resources"},
+      {Name = "Blog", URL = "/post/"},
+      {Name = "Github", URL = "https://github.com/joaogui1"}
+  ]
