@@ -5,8 +5,8 @@ theme = "hyde-custom"
 [Params]
     mainSections = ["post"]
     intro = true
-    headline = "My headline"
-    description = "My description"
+    headline = ""
+    description = "My CS journey"
     github = "https://github.com/joaogui1"
     twitter = "https://twitter.com/XXX"
     email = "joaoguilhermearujo@gmail.com"
