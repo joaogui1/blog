@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<style>
+h1 {
+  font-family: 'Uncial Antiqua';
+  margin-bottom: .1em;
+  line-height: 1.2em;
+  padding-bottom: 0;
+  text-align: center;
+  margin-top: 150px;
+  font-weight: 600;
+  font-size: 80px;
+  letter-spacing: -.01em;
+  visibility: hidden;
+}
+</style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <h1><i>Valar dohaeris</i></h1>
+<script>
+  const pressed = [];
+  const unicornCode = 'unicorns';
+  const facelessCode = 'valar morghulis';
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key);
+    pressed.splice(-facelessCode.length - 1, pressed.length - facelessCode.length);
+    if(pressed.join('').includes(unicornCode)){
+      cornify_add();
+      pressed = [];
+    }
+    if(pressed.join('').includes(facelessCode)){
+      const valarDohaeris = document.querySelector('h1');
+      valarDohaeris.style.visibility = 'visible';
+    }
+    console.log(pressed);
+  });
+</script>
+</body>
+</html>
