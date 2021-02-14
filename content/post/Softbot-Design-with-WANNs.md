@@ -49,13 +49,13 @@ WANNs show surprisingly good performance while using a single shared weight acro
 ### Getting the codebases and translating to modern python
 
 
-My first challenge with this research was setting up my environment, as I had to initially combine Davd Ha's Weight Agnostic Neural Networks code with the Unshackling evolution challenge. Thankfully I found Kriegman's github, where he implemented Unshackling Evolution in python, calling it [evosoro](https://github.com/skriegman/evosoro/tree/master/evosoro) (for **evo**lution of **so**ft **ro**bots), though it was still in python 2.7 and so I would need to do some translating to python 3 before merging the codebases.
+My first challenge with this research was setting up my environment, as I had to initially combine David Ha's Weight Agnostic Neural Networks code with the Unshackling evolution challenge. Thankfully I found Kriegman's github, where he implemented Unshackling Evolution in python, calling it [evosoro](https://github.com/skriegman/evosoro/tree/master/evosoro) (for **evo**lution of **so**ft **ro**bots), though it was still in python 2.7 and so I would need to do some translating to python 3 before merging the codebases.
 
 A few dozens of unicode errors later and evosoro was up and running in python 3.6 and so I could start thinking about merging the codebases.
 ### Merging the codebases
 
 
-Both projects were somewhat extensive, evosoro specially as it was written in a very general way as to make it easier to implement other papers beyond Unshackling Evolution. After a good deal of time reading through the code I decided to use David Ha's code for optimization and create a Gym Task based on Voxelyze.
+Both projects were somewhat extensive, evosoro especially as it was written in a very general way as to make it easier to implement other papers beyond Unshackling Evolution. After a good deal of time reading through the code I decided to use David Ha's code for optimization and create a Gym Task based on Voxelyze.
 ## Initial experiments
 
 
@@ -107,8 +107,8 @@ I still need to run these experiments for more generations as that will probably
 There were some extra challenges related to dealing with weights optimization using CMA-ES and using PEPG, but this post is quite too long as it is, so maybe I will talk about that in the future.
 ## TL;DR: Lessons Learned
    - Always check your model's outputs, metrics are a good way to diagnose simple problems, but looking at the output can give you qualitatively better understanding of any problem you come across
-   - Don't assume anyone's code is bug free, specially your own
-   - Iterate fast, specially in the beginning as that will help you fix any initial bugs and start doing real experiments sooner. This can mean using a small subset of your data, use smaller or simpler models that still represent your idea or using smaller populations and less generations in a genetic algorithm
+   - Don't assume anyone's code is bug free, especially your own
+   - Iterate fast, especially in the beginning as that will help you fix any initial bugs and start doing real experiments sooner. This can mean using a small subset of your data, use smaller or simpler models that still represent your idea or using smaller populations and less generations in a genetic algorithm
    - There is a sweet spot between pivoting too much and spending too much time in a doomed project, everyone is in some point in that spectrum, try to discover if you abandon things too quickly for newer shinier ideas or if you stay too long with an idea that won't ever work
    - Talk to your adviser. Just do it. If you have a progress to show, great! If you're somehow stuck explain why to them and they will probably manage to help.
    - If your adviser is not helping you it may be a good moment to try to find another one or have a serious conversation with them
